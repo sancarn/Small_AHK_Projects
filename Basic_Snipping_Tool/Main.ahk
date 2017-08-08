@@ -1,4 +1,4 @@
-#Include Gdip.ahk
+#Include libs\Gdip.ahk
 #SingleInstance force
 
 IfNotExist,%A_AppData%\AHKMacroRecorder
