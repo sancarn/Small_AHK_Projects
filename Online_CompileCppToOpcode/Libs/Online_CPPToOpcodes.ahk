@@ -1,4 +1,4 @@
-﻿CppToOpcodesOnline(source){
+CppToOpcodesOnline(source){
 	;compile CPP online
 	response:=compileCpp(source)
 	if response=""
@@ -13,10 +13,10 @@
 	{
 		if packet.text ~= "\w+\(.*?\):"		;This regex likely needs improving to find the function in the Assembly code.
 			bool:=1
-		if packet.text ~= "\s+ret\s+"
-			bool:=0
 		if bool
 			opCodes .= strjoin(packet.opcodes)
+		if packet.text ~= "\s+ret\s+"
+			bool:=0
 	}
 	return opCodes
 }
