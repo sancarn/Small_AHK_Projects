@@ -1,6 +1,6 @@
-CppToOpcodesOnline(source){
+CppToOpcodesOnline(source,args=""){
 	;compile CPP online
-	response:=compileCpp(source)
+	response:=compileCpp(source,args)
 	if response=""
 		return
 	
@@ -21,9 +21,9 @@ CppToOpcodesOnline(source){
 	return opCodes
 }
 
-compileCpp(source){
+compileCpp(source,args=""){
 	;JSON to parse via POST request to godbolt
-	in={"source":"%source%","compiler":"g71","options":{"userArguments":"-Ofast -mabi=ms","compilerOptions":{},"filters":{"binary":true,"labels":true,"directives":true,"commentOnly":true,"trim":true,"intel":true}}}
+	in={"source":"%source%","compiler":"g71","options":{"userArguments":"-mabi=ms %args%","compilerOptions":{},"filters":{"binary":true,"labels":true,"directives":true,"commentOnly":true,"trim":true,"intel":true}}}
 	
 	;Setup HTTP Request
 	oHTTP:= ComObjCreate("WinHttp.WinHttpRequest.5.1")
