@@ -1,12 +1,15 @@
-CppToOpcodesOnline(source,args=""){
+CppToOpcodesOnline(source,args="",compiler="g71"){
 	;compile CPP online
-	response:=compileCpp(source,args)
+	response:=compileCpp(source,args,compiler)
 	if response=""
 		return
 	
 	;Bool to keep track of functions
 	bool:=0
 	opCodes := ""
+	
+	;Return ErrorLevel, if stderr returned
+	ErrorLevel := response.stderr
 	
 	;Loop through compiled assembly and generate op codes as hex string.
 	for k,packet in response.asm
@@ -21,9 +24,9 @@ CppToOpcodesOnline(source,args=""){
 	return opCodes
 }
 
-compileCpp(source,args=""){
+compileCpp(source,args="",compiler="g71"){
 	;JSON to parse via POST request to godbolt
-	in={"source":"%source%","compiler":"g71","options":{"userArguments":"-mabi=ms %args%","compilerOptions":{},"filters":{"binary":true,"labels":true,"directives":true,"commentOnly":true,"trim":true,"intel":true}}}
+	in={"source":"%source%","compiler":"%compiler%","options":{"userArguments":"-mabi=ms %args%","compilerOptions":{},"filters":{"binary":true,"labels":true,"directives":true,"commentOnly":true,"trim":true,"intel":true}}}
 	
 	;Setup HTTP Request
 	oHTTP:= ComObjCreate("WinHttp.WinHttpRequest.5.1")
