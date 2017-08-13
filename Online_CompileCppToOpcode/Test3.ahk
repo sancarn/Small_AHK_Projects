@@ -1,4 +1,4 @@
-﻿#Include Libs\JSON.ahk
+#Include Libs\JSON.ahk
 #Include Libs\Online_CPPToOpcodes.ahk
 source =
 (LTrim Join\n
@@ -9,14 +9,14 @@ source =
 	  return i;
 	}
 )
-msgbox, % JSON.stringify(compileCpp(source))
 msgbox, % CppToOpcodesOnline(source)
 return
 
 ;---------------------------
 ;Test3.ahk
 ;---------------------------
-;554889e548897de8c745fc000000008b45fc4863d0488b45e84801d00fb60084c074068345fc01ebe68b45fc5dc3
+;803900741bba01000000660f1f44000089d04883c201807c11ff0075f3f3c39031c0c3
 ;---------------------------
 ;OK   
 ;---------------------------
+
