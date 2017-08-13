@@ -1,4 +1,4 @@
-﻿#Include Libs\JSON.ahk
+#Include Libs\JSON.ahk
 #Include Libs\Online_CPPToOpcodes.ahk
 source =
 (LTrim Join\n
@@ -13,7 +13,8 @@ return
 ;---------------------------
 ;Test2.ahk
 ;---------------------------
-;554889e5b82a0000005d
+;b82a000000c3
 ;---------------------------
 ;OK   
 ;---------------------------
+
