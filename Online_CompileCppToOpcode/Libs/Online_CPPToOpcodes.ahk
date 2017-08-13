@@ -15,7 +15,7 @@ CppToOpcodesOnline(source){
 			bool:=1
 		if bool
 			opCodes .= strjoin(packet.opcodes)
-		if packet.text ~= "\s+ret\s+"
+		if packet.text ~= "^\s+ret\s+$"
 			bool:=0
 	}
 	return opCodes
@@ -23,7 +23,7 @@ CppToOpcodesOnline(source){
 
 compileCpp(source){
 	;JSON to parse via POST request to godbolt
-	in={"source":"%source%","compiler":"g71","options":{"userArguments":"","compilerOptions":{},"filters":{"binary":true,"labels":true,"directives":true,"commentOnly":true,"trim":true,"intel":true}}}
+	in={"source":"%source%","compiler":"g71","options":{"userArguments":"-Ofast -mabi=ms","compilerOptions":{},"filters":{"binary":true,"labels":true,"directives":true,"commentOnly":true,"trim":true,"intel":true}}}
 	
 	;Setup HTTP Request
 	oHTTP:= ComObjCreate("WinHttp.WinHttpRequest.5.1")
