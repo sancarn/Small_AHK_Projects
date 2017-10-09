@@ -14,7 +14,7 @@
 	injectJS(js)
 return
 
-injectJS(js,minify=true){
+injectJS(js,minify=1){
         if minify
 	    js := getSingleLineOfJS(js)
 	if !js 
