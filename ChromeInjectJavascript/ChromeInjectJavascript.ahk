@@ -14,8 +14,9 @@
 	injectJS(js)
 return
 
-injectJS(js){
-	js := getSingleLineOfJS(js)
+injectJS(js,minify=true){
+        if minify
+	    js := getSingleLineOfJS(js)
 	if !js 
 		return
 	addressBar := Acc_Get("Object","4.1.2.2.3.5.2",,"ahk_exe chrome.exe")
