@@ -4,18 +4,23 @@
 
 F8 up::
 	;;Javascript to minify:
-	;js = 
-	;(LTrim
-	;	alert("abc");
-	;	alert("cde");
-	;	(function(){
-	;		for(var n=5;10>n;n++) alert(n);
-	;	})();
-	;)
-	
+	js = 
+	(LTrim
+		alert("abc");
+		alert("cde");
+		
+		//Count up from 5 to 10
+		(function(){
+			for(var n=5;10>n;n++) alert(n);
+		})();
+	)
+	injectJS(js,true)
+return
+
+F9 Up::	
 	;Pre-minified JS
 	js=alert("abc");alert("cde");(function(){for(var n=5;10>n;n++) alert(n);})();
-	injectJS(js)
+	injectJS(js,false)
 return
 
 injectJS(js,minify=1){
