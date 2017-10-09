@@ -2,15 +2,19 @@
 #include Libs\acc.ahk
 #include Libs\URIEncode.ahk
 
-+F8::
-	js = 
-	(LTrim
-		alert("abc");
-		alert("cde");
-		(function(){
-			for(var n=5;10>n;n++) alert(n);
-		})();
-	)
+F8 up::
+	;;Javascript to minify:
+	;js = 
+	;(LTrim
+	;	alert("abc");
+	;	alert("cde");
+	;	(function(){
+	;		for(var n=5;10>n;n++) alert(n);
+	;	})();
+	;)
+	
+	;Pre-minified JS
+	js=alert("abc");alert("cde");(function(){for(var n=5;10>n;n++) alert(n);})();
 	injectJS(js)
 return
 
